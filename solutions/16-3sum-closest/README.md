@@ -1,11 +1,11 @@
 # [3Sum Closest](https://leetcode.com/problems/3sum-closest/)
 Medium, Python3
 ## Approach
-The key insight here is to use a two-pointer technique after sorting the array, which allows us to efficiently find the closest sum to the target. This approach was chosen over a brute-force approach (which would involve checking all possible combinations of three numbers) because it significantly reduces the number of operations needed. Here's a short walkthrough of the logic:
+The key insight here is to use a two-pointer technique to find the closest sum to the target. A naive approach would be to use three nested loops to check all possible combinations of three numbers, but this would be inefficient due to its O(n^3) time complexity. Instead, we sort the array and fix one number at a time, then use two pointers to find a pair of numbers that sum up to the remaining target. Here's a short walkthrough of the logic:
 1. Sort the input array to enable the two-pointer technique.
-2. Initialize the closest sum to infinity and iterate over the array, fixing one number at a time.
-3. For each fixed number, use two pointers (one starting from the next number and one from the end) to find a pair of numbers that, when added to the fixed number, gives a sum closest to the target.
-4. Update the closest sum whenever a closer sum is found.
+2. Iterate over the array, fixing one number at a time.
+3. Initialize two pointers, one at the next number and one at the end of the array.
+4. Calculate the current sum and update the closest sum if necessary.
+5. Move the pointers based on whether the current sum is less than or greater than the target.
 ## Complexity
-Time complexity: The time complexity is O(n^2) because we are iterating over the array and for each iteration, we are using a two-pointer technique that also iterates over the remaining part of the array, where n is the length of the input array.
-Space complexity: The space complexity is O(1) because we are not using any additional data structures that scale with the input size, aside from a constant amount of space to store the closest sum and other variables.
+The time complexity is O(n^2) because we have a nested loop structure, where the outer loop iterates over the array and the inner loop uses the two-pointer technique to find a pair of numbers. The space complexity is O(1) because we only use a constant amount of space to store the closest sum and the pointers, assuming the input array is allowed to be modified in-place.
