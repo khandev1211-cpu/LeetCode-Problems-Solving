@@ -1,9 +1,10 @@
 # [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/)
-Medium, python3
+Medium, Python3
 ## Approach
-The key insight here is to utilize a queue to perform a level-order traversal of the binary tree, allowing us to easily access and set the next pointer for each node. This approach is chosen over a naive recursive approach that would require additional space for the recursive call stack. Here's a short walkthrough:
-1. Initialize a queue with the root node.
-2. For each level, iterate through the nodes in the queue and set the next pointer for each node to the next node in the queue.
-3. Add the left and right children of each node to the queue for the next level.
+The key insight here is to utilize a level-order traversal (Breadth-First Search, BFS) to populate the next pointers of each node. This approach is chosen over a naive recursive depth-first search (DFS) because DFS would not naturally lend itself to easily accessing the next node on the same level. Here's a short walkthrough of the logic:
+1. Initialize a queue with the root node if it exists.
+2. For each level, iterate through all nodes in the current level, setting the next pointer of each node to the next node in the queue (or None if it's the last node in the level).
+3. Add the left and right children of each node to the queue to process in the next level.
+4. Repeat steps 2-3 until all levels have been processed.
 ## Complexity
-The time complexity is O(n), where n is the number of nodes in the tree, because we visit each node once. The space complexity is O(n), where n is the number of nodes in the tree, because in the worst case, the queue will contain all nodes at the last level.
+The time complexity is O(N), where N is the number of nodes in the tree, because each node is visited exactly once. The space complexity is O(N), where N is the number of nodes in the tree, because in the worst case, the queue will store all nodes at the last level.
