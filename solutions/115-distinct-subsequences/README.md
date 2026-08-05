@@ -1,0 +1,10 @@
+# [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/)
+Hard, Python3
+## Approach
+The key insight here is to use dynamic programming to efficiently count the distinct subsequences of `s` that equal `t`. A naive approach would involve generating all possible subsequences of `s` and checking which ones match `t`, but this would be highly inefficient due to the large number of possible subsequences. Instead, we use a 2D array `dp` where `dp[i][j]` represents the number of distinct subsequences of the first `i` characters of `s` that equal the first `j` characters of `t`. We can fill in this array by iterating over `s` and `t` and considering two cases: if the current characters in `s` and `t` match, we can either include the current character in `s` in the subsequence or not, so we add the number of subsequences that include the current character to the number of subsequences that do not; if the current characters do not match, we cannot include the current character in `s` in the subsequence, so we simply copy the number of subsequences from the previous row. The logic can be broken down as follows:
+1. Initialize the first column of `dp` to all 1s, since there is exactly one way to match an empty string with any string (by not including any characters).
+2. Iterate over `s` and `t`, and for each pair of characters, check if they match.
+3. If they match, update `dp[i][j]` to be the sum of the number of subsequences that include the current character and the number of subsequences that do not.
+4. If they do not match, update `dp[i][j]` to be the number of subsequences that do not include the current character.
+## Complexity
+The time complexity is O(m*n), where m and n are the lengths of `s` and `t`, respectively, because we need to fill in the entire `dp` array. The space complexity is also O(m*n), because we need to store the entire `dp` array.
