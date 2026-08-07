@@ -1,4 +1,4 @@
- # LeetCode Problems Solving
+ # LeetCode Problems Solving   
 
 A growing collection of Python solutions to LeetCode problems. This repository is updated regularly as new problems are solved — it's not a fixed set, but an ongoing practice log.
 
